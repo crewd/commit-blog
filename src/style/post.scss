@@ -7,4 +7,10 @@
 .post-card {
   border: 1px solid #adadad;
   padding: 15px;
+  &__title {
+    font-weight: bold;
+  }
+  &__date {
+    color: #adadad
+  }
 }
