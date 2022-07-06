@@ -5,7 +5,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <header className="header">
         <div className="header-content">
-          <h1 className="header-title">Blog</h1>
+          <h1 className="header-title">Commit Blog</h1>
           <nav className="header-nav">
             <ul>
               <li>검색</li>
