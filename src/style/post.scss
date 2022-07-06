@@ -10,10 +10,12 @@ $breakpoint-desktop: 1024px;
 
   @media only screen and(max-width: $breakpoint-tablet) {
     grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
   }
 
   @media only screen and(max-width: $breakpoint-mobile) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
 
