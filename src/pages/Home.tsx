@@ -176,8 +176,8 @@ const data = [
 const Home: React.FC = () => {
   return (
     <ul className="post-wrapper">
-      {data.map(commit => {
-        return <PostCard message={commit.message} author={commit.author.name} date={commit.author.date} />
+      {data.map((commit, index) => {
+        return <PostCard key={commit.node_id + index} message={commit.message} author={commit.author.name} date={commit.author.date} />
       })}
     </ul>
   )
