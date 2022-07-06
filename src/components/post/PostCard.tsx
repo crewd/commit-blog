@@ -2,7 +2,7 @@ import { Post } from "../../types/postType";
 
 const PostCard = ({ message, author, date }: Post) => {
   return (
-    <li>
+    <li className="post-card">
       {message} {author} {date}
     </li>
   )
