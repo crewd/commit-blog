@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  padding: 15px 0;
+  height: 40px;
+  justify-content: space-between;
+}
+
+.header-title {
+  line-height: 40px;
+  margin: 0;
+}
+
+.header-nav {
+  line-height: 40px;
+  font-size: 18px;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  li {
+    text-align: center;
+    float: left;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+.content {
+  margin-top: 32px
+}
