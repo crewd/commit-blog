@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import PostCard from "../components/post/PostCard"
 
 const data = [
@@ -177,7 +178,11 @@ const Home: React.FC = () => {
   return (
     <ul className="post-wrapper">
       {data.map((commit, index) => {
-        return <PostCard key={commit.node_id + index} message={commit.message} author={commit.author.name} date={commit.author.date} />
+        return (
+          <Link className="link" to={`/posts/${index + 1}`} key={commit.node_id + index}>
+            <PostCard message={commit.message} author={commit.author.name} date={commit.author.date} />
+          </Link>
+        )
       })}
     </ul>
   )

@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <header className="header">
         <div className="header-content">
-          <h1 className="header-title">Commit Blog</h1>
+          <Link className="link" to="/">
+            <h1 className="header-title">Commit Blog</h1>
+          </Link>
           <nav className="header-nav">
             <ul>
               <li>검색</li>
