@@ -6,11 +6,11 @@ $breakpoint-desktop: 1024px;
   h1 {
     font-size: 2rem;
 
-    @media only screen and(max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-tablet) {
       font-size: 28px;
     }
   
-    @media only screen and(max-width: $breakpoint-mobile) {
+    @media (max-width: $breakpoint-mobile) {
       font-size: 24px;
     }
   }
@@ -24,7 +24,7 @@ $breakpoint-desktop: 1024px;
   div {
     margin-left: 15px;
 
-    @media only screen and(max-width: $breakpoint-mobile) {
+    @media (max-width: $breakpoint-mobile) {
       margin-left: 0;
     }
   }
@@ -34,7 +34,7 @@ $breakpoint-desktop: 1024px;
   margin-top: 60px;
   font-size: 24px;
 
-  @media only screen and(max-width: $breakpoint-mobile) {
+  @media (max-width: $breakpoint-mobile) {
     font-size: 21px;
   }
 }
@@ -44,26 +44,30 @@ $breakpoint-desktop: 1024px;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
-  @media only screen and(max-width: $breakpoint-tablet) {
+  @media (max-width: 1023px) {
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
   }
 
-  @media only screen and(max-width: $breakpoint-mobile) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+  @media (max-width: calc($breakpoint-tablet - 1px)) {
+    grid-template-columns: auto;
   }
 }
 
 .post-card {
   background-color: #fff;
-  border: 1px solid #d2d2d2;
   padding: 10px;
   cursor: pointer;
   transition: all 0.3s;
   height: 250px;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: calc($breakpoint-tablet - 1px)) {
+    height: 200px;
+  }
   
   &:hover {
     transform: translate(0, -10px);
@@ -74,8 +78,9 @@ $breakpoint-desktop: 1024px;
     font-size: 21px;
     display: flex;
     flex: 1 1 0%;
-    flex-direction: column;
+    flex-direction: column;  
   }
+  
   &__date {
     color: #adadad
   }
