@@ -12,9 +12,13 @@ const PostCard = ({ message, author, date }: Post) => {
 
   return (
     <li className="post-card">
-      <p className="post-card__title">{message}</p>
-      <p className="post-card__date">{commitDate.toString()}</p>
-      <p className="post-card__author">{author}</p>
+      <div className="post-card__title">
+        <p>{message}</p>
+      </div>
+      <div>
+        <p className="post-card__date">{commitDate.toString()}</p>
+        <p className="post-card__author">{author}</p>
+      </div>
     </li>
   )
 }

@@ -23,7 +23,7 @@ $breakpoint-desktop: 1024px;
   border-bottom: 1px solid #d2d2d2;
   div {
     margin-left: 15px;
-    
+
     @media only screen and(max-width: $breakpoint-mobile) {
       margin-left: 0;
     }
@@ -61,6 +61,9 @@ $breakpoint-desktop: 1024px;
   padding: 10px;
   cursor: pointer;
   transition: all 0.3s;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
   
   &:hover {
     transform: translate(0, -10px);
@@ -68,6 +71,10 @@ $breakpoint-desktop: 1024px;
 
   &__title {
     font-weight: bold;
+    font-size: 21px;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
   }
   &__date {
     color: #adadad
