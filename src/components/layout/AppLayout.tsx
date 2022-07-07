@@ -7,7 +7,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
       <header className="header">
         <div className="header-content">
           <Link className="link" to="/">
-            <h1 className="header-title">Commit Blog</h1>
+            <h1 className="header-title">Comlog</h1>
           </Link>
           <nav className="header-nav">
             <ul>
