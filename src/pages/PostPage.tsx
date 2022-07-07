@@ -36,8 +36,30 @@ const data = {
 }
 
 const PostPage: React.FC = () => {
+
+  const getCommitDate = new Date(data.committer.date);
+
+  const year = getCommitDate.getFullYear();
+  const month = ('0' + (getCommitDate.getMonth() + 1)).slice(-2);
+  const day = ('0' + (getCommitDate.getDate() - 1));
+  const hour = ('0' + (getCommitDate.getHours()));
+  const minute = ('0' + getCommitDate.getMinutes())
+
+  const commitDate = `${year}-${month}-${day} ${hour}:${minute}`;
   return (
-    <div>포스트페이지</div>
+    <section>
+      <header className='post-title'>
+        <h1>{data.message}</h1>
+      </header>
+      <address className='post-address'>
+        <div>
+          {`${data.committer.name} / ${commitDate}`}
+        </div>
+      </address>
+      <article className='post-content'>
+        {data.message}
+      </article>
+    </section>
   )
 };
 

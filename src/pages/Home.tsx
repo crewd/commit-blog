@@ -176,7 +176,7 @@ const data = [
 
 const Home: React.FC = () => {
   return (
-    <ul className="post-wrapper">
+    <ul className="post-list">
       {data.map((commit, index) => {
         return (
           <Link className="link" to={`/posts/${index + 1}`} key={commit.node_id + index}>

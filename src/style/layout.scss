@@ -1,4 +1,4 @@
-$breakpoint-mobile: 375px;
+$breakpoint-mobile: 425px;
 $breakpoint-tablet: 758px;
 $breakpoint-desktop: 1024px;
 
@@ -36,6 +36,9 @@ $breakpoint-desktop: 1024px;
   line-height: 40px;
   margin: 0;
   cursor: pointer;
+  @media only screen and(max-width: $breakpoint-mobile) {
+    font-size: 24px;
+  }
 }
 
 .header-nav {
@@ -46,6 +49,11 @@ $breakpoint-desktop: 1024px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+
+    @media only screen and(max-width: $breakpoint-mobile) {
+      gap: 10px;
+      font-size: 16px;
+    }
   }
 
   li {
@@ -60,5 +68,5 @@ $breakpoint-desktop: 1024px;
 }
 
 .content {
-  margin-top: 102px;
+  margin-top: 150px;
 }
