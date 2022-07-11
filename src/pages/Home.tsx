@@ -1,4 +1,6 @@
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom"
+import { getCommits } from "../api";
 import PostCard from "../components/post/PostCard"
 
 const data = [
@@ -175,6 +177,11 @@ const data = [
 ]
 
 const Home: React.FC = () => {
+
+  const commits = useQuery("commits", getCommits);
+
+  console.log(commits.data);
+
   return (
     <ul className="post-list">
       {data.map((commit, index) => {

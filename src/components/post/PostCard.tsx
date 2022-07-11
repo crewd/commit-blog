@@ -11,11 +11,6 @@ const PostCard = ({ message, author, date }: Post) => {
 
   const commitDate = year + '-' + month + '-' + day;
 
-  const commits = useQuery("commits", getCommits);
-
-  console.log(commits.data);
-
-
   return (
     <li className="post-card">
       <div className="post-card__title">
