@@ -178,7 +178,11 @@ const data = [
 
 const Home: React.FC = () => {
 
-  const commits = useQuery("commits", getCommits);
+  const commits = useQuery("commits", getCommits, {
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  });
 
   console.log(commits.data);
 
