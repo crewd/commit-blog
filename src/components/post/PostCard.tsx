@@ -1,3 +1,5 @@
+import { useQuery } from "react-query";
+import { getCommits } from "../../api";
 import { Post } from "../../types/postType";
 
 const PostCard = ({ message, author, date }: Post) => {
@@ -8,6 +10,10 @@ const PostCard = ({ message, author, date }: Post) => {
   const day = ('0' + getCommitDate.getDate()).slice(-2);
 
   const commitDate = year + '-' + month + '-' + day;
+
+  const commits = useQuery("commits", getCommits);
+
+  console.log(commits.data);
 
 
   return (
