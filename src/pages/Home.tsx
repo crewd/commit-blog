@@ -12,8 +12,6 @@ const Home: React.FC = () => {
     refetchOnWindowFocus: false,
   });
 
-  console.log(commits.data);
-
   return (
     <ul className="post-list">
       {commits.data && commits.data.map((commit, index) => {

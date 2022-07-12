@@ -1,4 +1,6 @@
 import React from 'react';
+import { useQuery } from 'react-query';
+import { getCommit } from '../api';
 
 const data = {
   "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
@@ -36,6 +38,14 @@ const data = {
 }
 
 const PostPage: React.FC = () => {
+
+  const commit = useQuery("commit", () => getCommit("c730c3af51e1cd912322ee321ea350018612434b"), {
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  });
+
+  console.log(commit.data)
 
   const getCommitDate = new Date(data.committer.date);
 

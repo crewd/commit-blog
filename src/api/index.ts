@@ -6,3 +6,8 @@ export const getCommits = async () => {
   const { data } = await axios.get(`${baseURL}/commits`);
   return data;
 };
+
+export const getCommit = async (sha: string) => {
+  const { data } = await axios.get(`${baseURL}/git/commits/${sha}`);
+  return data;
+};
