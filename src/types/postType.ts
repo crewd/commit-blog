@@ -69,3 +69,31 @@ export type GetCommits = {
   sha: string;
   url: string;
 };
+
+export type GetCommit = {
+  author: {
+    date: string;
+    email: string;
+    name: string;
+  };
+  committer: {
+    date: string;
+    email: string;
+    name: string;
+  };
+  html_url: string;
+  message: string;
+  node_id: string;
+  parents: Parent[];
+  sha: string;
+  tree: {
+    sha: string;
+    url: string;
+  };
+  verification: {
+    payload: null;
+    reason: string;
+    signature: null;
+    verified: boolean;
+  };
+};

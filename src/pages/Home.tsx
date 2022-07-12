@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     <ul className="post-list">
       {commits.data && commits.data.map((commit, index) => {
         return (
-          <Link className="link" to={`/posts/${index + 1}`} key={commit.committer.id + index}>
+          <Link className="link" to={`/posts/${commit.sha}`} key={commit.committer.id + index}>
             <PostCard message={commit.commit.message} author={commit.committer.login} date={commit.commit.committer.date} avatar={commit.committer.avatar_url} />
           </Link>
         )

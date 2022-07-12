@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import { useLocation } from 'react-router-dom';
 import { getCommit } from '../api';
+import { GetCommit, GetCommits } from '../types/postType';
 
 const data = {
   "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
@@ -38,36 +40,79 @@ const data = {
 }
 
 const PostPage: React.FC = () => {
+  const [commitData, setCommitData] = useState<GetCommit | null>(null);
+  const [title, setTitle] = useState("");
+  const [commitDate, setCommitDate] = useState("");
+  const [commitMessage, setCommitMessage] = useState<string[]>([""]);
 
-  const commit = useQuery("commit", () => getCommit("c730c3af51e1cd912322ee321ea350018612434b"), {
-    refetchOnMount: false,
-    refetchOnReconnect: false,
+  const location = useLocation();
+
+  const sha = location.pathname.split(/post|\//g);
+
+  const commit = useQuery("commit", () => getCommit(sha[sha.length - 1]), {
     refetchOnWindowFocus: false,
   });
 
-  console.log(commit.data)
+  useEffect(() => {
+    if (!commit.data) {
+      return setCommitData(null);
+    }
+    setCommitData(commit.data);
+  }, [commit])
 
-  const getCommitDate = new Date(data.committer.date);
+  useEffect(() => {
+    if (!commitData) {
+      return;
+    }
+    const postTitle = commitData.message.split(/\n/g);
+    setTitle(postTitle[0])
+  }, [commitData])
 
-  const year = getCommitDate.getFullYear();
-  const month = ('0' + (getCommitDate.getMonth() + 1)).slice(-2);
-  const day = ('0' + (getCommitDate.getDate() - 1));
-  const hour = ('0' + (getCommitDate.getHours()));
-  const minute = ('0' + getCommitDate.getMinutes())
+  useEffect(() => {
+    if (!commitData) {
+      return;
+    }
+    const getCommitDate = new Date(commitData.committer.date);
 
-  const commitDate = `${year}-${month}-${day} ${hour}:${minute}`;
+    const year = getCommitDate.getFullYear();
+    const month = ('0' + (getCommitDate.getMonth() + 1)).slice(-2);
+    const day = ('0' + getCommitDate.getDate()).slice(-2);
+    const hour = (getCommitDate.getHours());
+    const minute = getCommitDate.getMinutes()
+
+    setCommitDate(`${year}-${month}-${day} ${hour}:${minute}`)
+  }, [title])
+
+  useEffect(() => {
+    if (!commitData) {
+      return;
+    }
+
+    const message = commitData.message.split(/\n/g);
+    if (message.length === 1) {
+      return setCommitMessage(message)
+    }
+    setCommitMessage(message.slice(1));
+
+  }, [commitDate])
+
+
+  console.log(commitMessage);
+
   return (
     <section>
       <header className='post-title'>
-        <h1>{data.message}</h1>
+        <h1>{title}</h1>
       </header>
       <address className='post-address'>
         <div>
-          {`${data.committer.name} / ${commitDate}`}
+          {`${commitData?.committer.name} / ${commitDate}`}
         </div>
       </address>
       <article className='post-content'>
-        {data.message}
+        {commitMessage.map(message => {
+          return <p key={message}>{message}</p>
+        })}
       </article>
     </section>
   )

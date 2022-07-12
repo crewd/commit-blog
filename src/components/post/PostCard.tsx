@@ -9,7 +9,7 @@ const PostCard = ({ message, author, date, avatar }: Post) => {
   const month = ('0' + (getCommitDate.getMonth() + 1)).slice(-2);
   const day = ('0' + getCommitDate.getDate()).slice(-2);
 
-  const commitDate = year + '-' + month + '-' + day;
+  const commitDate = `${year}-${month}-${day}`;
 
   const regexMessage = message.split(/\n/g)
 
