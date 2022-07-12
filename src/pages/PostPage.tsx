@@ -96,9 +96,6 @@ const PostPage: React.FC = () => {
 
   }, [commitDate])
 
-
-  console.log(commitMessage);
-
   return (
     <section>
       <header className='post-title'>
