@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom"
 import { getCommits } from "../api";
 import PostCard from "../components/post/PostCard"
+import { GetCommits } from "../types/postType";
 
 const data = [
   {
@@ -178,7 +179,7 @@ const data = [
 
 const Home: React.FC = () => {
 
-  const commits = useQuery("commits", getCommits, {
+  const commits = useQuery<GetCommits[]>("commits", getCommits, {
     refetchOnMount: false,
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
@@ -188,10 +189,10 @@ const Home: React.FC = () => {
 
   return (
     <ul className="post-list">
-      {data.map((commit, index) => {
+      {commits.data && commits.data.map((commit, index) => {
         return (
-          <Link className="link" to={`/posts/${index + 1}`} key={commit.node_id + index}>
-            <PostCard message={commit.message} author={commit.author.name} date={commit.author.date} />
+          <Link className="link" to={`/posts/${index + 1}`} key={commit.committer.id + index}>
+            <PostCard message={commit.commit.message} author={commit.committer.login} date={commit.commit.committer.date} avatar={commit.committer.avatar_url} />
           </Link>
         )
       })}

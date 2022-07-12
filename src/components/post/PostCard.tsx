@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { getCommits } from "../../api";
 import { Post } from "../../types/postType";
 
-const PostCard = ({ message, author, date }: Post) => {
+const PostCard = ({ message, author, date, avatar }: Post) => {
   const getCommitDate = new Date(date);
 
   const year = getCommitDate.getFullYear();
@@ -11,14 +11,19 @@ const PostCard = ({ message, author, date }: Post) => {
 
   const commitDate = year + '-' + month + '-' + day;
 
+  const regexMessage = message.split(/\n/g)
+
   return (
     <li className="post-card">
       <div className="post-card__title">
-        <p>{message}</p>
+        <p>{regexMessage[0]}</p>
       </div>
       <div>
         <p className="post-card__date">{commitDate.toString()}</p>
-        <p className="post-card__author">{author}</p>
+        <div className="post-card__avatar">
+          <img src={avatar} />
+          <p className="post-card__author">{author}</p>
+        </div>
       </div>
     </li>
   )
