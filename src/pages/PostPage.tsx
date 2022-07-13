@@ -70,10 +70,10 @@ const PostPage: React.FC = () => {
     return (
       <section>
         <header className='post-title'>
-          <div />
+          <h2 className='post-title__skeleton'>loading</h2>
         </header>
         <address className='post-address'>
-          <div className='post-address__skeleton' />
+          <div className='post-address__skeleton'>loading</div>
         </address>
         <article className='post-content'>
           <div />
