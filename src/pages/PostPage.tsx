@@ -2,44 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation } from 'react-router-dom';
 import { getCommit } from '../api';
-import { GetCommit, GetCommits } from '../types/postType';
-
-const data = {
-  "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-  "node_id": "MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==",
-  "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd",
-  "html_url": "https://github.com/octocat/Hello-World/commit/7638417db6d59f3c431d3e1f261cc637155684cd",
-  "author": {
-    "date": "2014-11-07T22:01:45Z",
-    "name": "Monalisa Octocat",
-    "email": "octocat@github.com"
-  },
-  "committer": {
-    "date": "2014-11-07T22:01:45Z",
-    "name": "Monalisa Octocat",
-    "email": "octocat@github.com"
-  },
-  "message": "added readme, because im a good github citizen",
-  "tree": {
-    "url": "https://api.github.com/repos/octocat/Hello-World/git/trees/691272480426f78a0138979dd3ce63b77f706feb",
-    "sha": "691272480426f78a0138979dd3ce63b77f706feb"
-  },
-  "parents": [
-    {
-      "url": "https://api.github.com/repos/octocat/Hello-World/git/commits/1acc419d4d6a9ce985db7be48c6349a0475975b5",
-      "sha": "1acc419d4d6a9ce985db7be48c6349a0475975b5",
-      "html_url": "https://github.com/octocat/Hello-World/commit/7638417db6d59f3c431d3e1f261cc637155684cd"
-    }
-  ],
-  "verification": {
-    "verified": false,
-    "reason": "unsigned",
-    "signature": null,
-    "payload": null
-  }
-}
+import { GetCommit } from '../types/postType';
 
 const PostPage: React.FC = () => {
+  const [loading, setLoading] = useState(true);
   const [commitData, setCommitData] = useState<GetCommit | null>(null);
   const [title, setTitle] = useState("");
   const [commitDate, setCommitDate] = useState("");
@@ -52,6 +18,10 @@ const PostPage: React.FC = () => {
   const commit = useQuery("commit", () => getCommit(sha[sha.length - 1]), {
     refetchOnWindowFocus: false,
   });
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 500);
+  }, [])
 
   useEffect(() => {
     if (!commit.data) {
@@ -95,6 +65,22 @@ const PostPage: React.FC = () => {
     setCommitMessage(message.slice(1));
 
   }, [commitDate])
+
+  if (loading || commit.isLoading) {
+    return (
+      <section>
+        <header className='post-title'>
+          <div />
+        </header>
+        <address className='post-address'>
+          <div className='post-address__skeleton' />
+        </address>
+        <article className='post-content'>
+          <div />
+        </article>
+      </section>
+    )
+  }
 
   return (
     <section>
