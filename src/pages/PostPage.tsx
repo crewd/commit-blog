@@ -20,7 +20,7 @@ const PostPage: React.FC = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 300);
+    setTimeout(() => setLoading(false), 500);
   }, [])
 
   useEffect(() => {

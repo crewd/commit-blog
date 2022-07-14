@@ -12,7 +12,9 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
           <nav className="header-nav">
             <ul>
               <li>검색</li>
-              <li>글 작성</li>
+              <li>
+                <Link className="link" to="/write">글 작성</Link>
+              </li>
             </ul>
           </nav>
         </div>
