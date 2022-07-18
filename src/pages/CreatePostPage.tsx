@@ -17,7 +17,7 @@ const CreatePostPage = () => {
   return (
     <Editor
       initialValue=' # 제목
-      <br>
+      (한줄띄기)
       내용'
       previewStyle='vertical'
       plugins={[colorSyntax, [codeSyntaxHighlight, { highlighter: Prism }]]}

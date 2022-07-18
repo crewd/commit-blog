@@ -1,13 +1,15 @@
-import axios from "axios";
-
-const baseURL = "https://api.github.com/repos/crewd/only-commit";
+import instance from "./instance";
 
 export const getCommits = async () => {
-  const { data } = await axios.get(`${baseURL}/commits`);
+  const { data } = await instance.get(`/commits`);
   return data;
 };
 
 export const getCommit = async (sha: string) => {
-  const { data } = await axios.get(`${baseURL}/git/commits/${sha}`);
+  const { data } = await instance.get(`/git/commits/${sha}`);
   return data;
 };
+
+// export const newCommit = async (message: string) => {
+//   const data = await
+// };
