@@ -1,6 +1,11 @@
 @import 'layout';
 @import 'post';
 
+$breakpoint-mobile: 425px;
+$breakpoint-tablet: 758px;
+$breakpoint-desktop: 1024px;
+
+
 body {
   margin: 0;
   padding: 0;
@@ -16,6 +21,10 @@ ul {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 40px;
+
+  @media only screen and(max-width: $breakpoint-mobile) {
+    padding: 0 15px;
+  }
 }
 
 .link {
