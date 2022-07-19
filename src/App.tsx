@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import AppLayout from './components/layout/AppLayout';
-import CreatePostPage from './pages/CreatePostPage';
+import WritePage from './pages/WritePage';
 import Home from './pages/Home';
 import PostPage from './pages/PostPage';
 
@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/posts/:id" element={<PostPage />} />
-          <Route path="/write" element={<CreatePostPage />} />
+          <Route path="/write" element={<WritePage />} />
         </Routes>
       </AppLayout>
     </BrowserRouter>

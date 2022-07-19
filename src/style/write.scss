@@ -1,0 +1,47 @@
+.write-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+
+  @media only screen and(max-width: $breakpoint-mobile) {
+    grid-template-columns: none
+  }
+}
+
+.write-editor {
+  display: flex;
+  flex-direction: column;
+
+  &__textForm {
+    padding: 15px;
+    height: 30vh;
+    border: none;
+    resize: none;
+    font-size: 16px;
+    border: 1px solid #d2d2d2;
+    border-radius: 10px;
+
+    &:focus {
+      outline: none
+    }
+  }
+
+  &__button {
+    float: right;
+    width: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #5BCDFF;
+    border: none;
+    color: white;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #93DEFF;
+    }
+  }
+}
