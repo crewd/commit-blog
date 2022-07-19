@@ -3,9 +3,11 @@ import ReactMarkdown from 'react-markdown'
 
 const WirtePage = () => {
   const [textValue, setTextValue] = useState('');
-  const handleOnChange = (e: any) => {
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextValue(() => e.target.value);
   }
+
   return (
     <div className='write-wrapper'>
       <div className='write-editor' >
