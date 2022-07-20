@@ -6,7 +6,7 @@ const instance = axios.create({
   baseURL: host,
   auth: {
     username: "newspaper321@nate.com",
-    password: "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",
+    password: "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",
   },
 });
 

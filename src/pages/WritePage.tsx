@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
 
-const WirtePage = () => {
+const WirtePage: React.FC = () => {
   const [textValue, setTextValue] = useState('');
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
