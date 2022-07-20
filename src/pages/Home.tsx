@@ -4,13 +4,16 @@ import { Link } from "react-router-dom"
 import { useRecoilState } from "recoil";
 import { getCommits } from "../api";
 import PostCard from "../components/post/PostCard"
-import { baseTreeState, LatestCommitState } from "../recoil/sha";
+import { baseTreeState, LatestCommitState, newCommitState, newTreeState } from "../recoil/sha";
 import { GetCommits } from "../types/postType";
 
 const Home: React.FC = () => {
 
   const [latestCommit, setLatestCommit] = useRecoilState(LatestCommitState);
   const [baseTree, setBaseTree] = useRecoilState(baseTreeState);
+  const [newTree, setNewTree] = useRecoilState(newTreeState);
+  const [newCommit, setNewCommit] = useRecoilState(newCommitState);
+
 
   const commits = useQuery<GetCommits[]>("commits", getCommits, {
     refetchOnMount: false,
@@ -35,6 +38,18 @@ const Home: React.FC = () => {
     const shaBaseTree = commits.data[0].commit.tree.sha;
     setBaseTree(shaBaseTree);
   }, [latestCommit])
+
+  useEffect(() => {
+    commits.refetch();
+  }, [])
+
+  useEffect(() => {
+    setNewTree("");
+  }, [commits.refetch])
+
+  useEffect(() => {
+    setNewCommit("");
+  }, [newTree])
 
   return (
     <ul className="post-list">

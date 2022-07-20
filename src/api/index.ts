@@ -1,3 +1,4 @@
+import { NewTree, PushCommit, ShaNewCommit } from "../types/write";
 import instance from "./instance";
 
 export const getCommits = async () => {
@@ -10,6 +11,17 @@ export const getCommit = async (sha: string) => {
   return data;
 };
 
-// export const newCommit = async (message: string) => {
-//   const data = await
-// };
+export const createFile = async (newFile: NewTree) => {
+  const data = await instance.post(`/git/trees`, newFile);
+  return data;
+};
+
+export const getShaNewCommit = async (commits: ShaNewCommit) => {
+  const data = await instance.post(`/git/commits`, commits);
+  return data;
+};
+
+export const pushCommit = async (newCommit: PushCommit) => {
+  const data = await instance.post(`/git/refs/heads/main`, newCommit);
+  return data;
+};
