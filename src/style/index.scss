@@ -32,3 +32,18 @@ ul {
   color: inherit;
   text-decoration: none;
 }
+
+pre {
+  padding: 5px;
+  background-color: #f3f3f3;
+
+  code {
+    padding: 0;
+    background-color: initial;
+  }
+}
+
+code {
+  padding: 5px;
+  background-color: #f3f3f3;
+}

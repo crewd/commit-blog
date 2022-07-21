@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import { useRecoilState } from 'recoil';
 import ReactMarkdown from 'react-markdown';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { createFile, getShaNewCommit, pushCommit } from '../api';
 import { baseTreeState, LatestCommitState, newCommitState, newTreeState } from '../recoil/sha';
@@ -96,7 +97,9 @@ const WirtePage: React.FC = () => {
         </div>
       </div>
       <div className='write-preview'>
-        <ReactMarkdown>{textValue ? textValue : "## 미리보기"}</ReactMarkdown>
+        <ReactMarkdown>
+          {textValue ? textValue : "## 미리보기"}
+        </ReactMarkdown>
       </div>
     </div>
   )
