@@ -57,7 +57,6 @@ $skeleton-color:#f3f3f3;
 .post-address {
   color: #a8a8a8;
   padding-bottom: 20px;
-  border-bottom: 1px solid #d2d2d2;
 
   &__skeleton {
     width: 40%;
@@ -75,7 +74,6 @@ $skeleton-color:#f3f3f3;
 }
 
 .post-content {
-  margin-top: 60px;
   font-size: 24px;
 
   @media (max-width: $breakpoint-mobile) {
@@ -138,6 +136,10 @@ $skeleton-color:#f3f3f3;
     display: flex;
     flex: 1 1 0%;
     flex-direction: column;  
+
+    h1 {
+      font-size: 21px;
+    }
   }
   
   &__date {

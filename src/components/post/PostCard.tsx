@@ -1,5 +1,4 @@
-import { useQuery } from "react-query";
-import { getCommits } from "../../api";
+import ReactMarkdown from 'react-markdown';
 import { Post } from "../../types/postType";
 
 const PostCard = ({ message, author, date, avatar }: Post) => {
@@ -16,7 +15,9 @@ const PostCard = ({ message, author, date, avatar }: Post) => {
   return (
     <li className="post-card">
       <div className="post-card__title">
-        <p>{regexMessage[0]}</p>
+        <ReactMarkdown>
+          {regexMessage[0]}
+        </ReactMarkdown>
       </div>
       <div>
         <p className="post-card__date">{commitDate.toString()}</p>

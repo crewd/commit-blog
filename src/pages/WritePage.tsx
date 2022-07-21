@@ -29,7 +29,7 @@ const WirtePage: React.FC = () => {
   }
 
   const getShaNewTree = () => {
-    if (!baseTree) {
+    if (!baseTree || !textValue) {
       return;
     }
     shaNewTree.mutate({
@@ -39,7 +39,7 @@ const WirtePage: React.FC = () => {
           "path": `${fileTitle}.txt`,
           "mode": "100644",
           "type": "blob",
-          "content": "This is NewFile1."
+          "content": textValue
         }
       ]
     })

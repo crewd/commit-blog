@@ -6,7 +6,7 @@ const instance = axios.create({
   baseURL: host,
   auth: {
     username: "newspaper321@nate.com",
-    password: process.env.REACT_APP_GIT_TOKEN,
+    password: process.env.REACT_APP_TOKEN,
   },
 });
 

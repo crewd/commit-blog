@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import { getCommit } from '../api';
 import { GetCommit } from '../types/postType';
 
@@ -85,7 +86,7 @@ const PostPage: React.FC = () => {
   return (
     <section>
       <header className='post-title'>
-        <h1>{title}</h1>
+        <ReactMarkdown>{title}</ReactMarkdown>
       </header>
       <address className='post-address'>
         <div>
@@ -94,7 +95,7 @@ const PostPage: React.FC = () => {
       </address>
       <article className='post-content'>
         {commitMessage.map(message => {
-          return <p key={message}>{message}</p>
+          return <ReactMarkdown key={message}>{message}</ReactMarkdown>
         })}
       </article>
     </section>
