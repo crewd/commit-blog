@@ -5,6 +5,7 @@ import AppLayout from './components/layout/AppLayout';
 import WritePage from './pages/WritePage';
 import Home from './pages/Home';
 import PostPage from './pages/PostPage';
+import RequireSha from './components/route/RequireSha';
 
 function App() {
   return (
@@ -13,7 +14,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/posts/:id" element={<PostPage />} />
-          <Route path="/write" element={<WritePage />} />
+          <Route path="/write" element={
+            <RequireSha>
+              <WritePage />
+            </RequireSha>
+          }
+          />
         </Routes>
       </AppLayout>
     </BrowserRouter>

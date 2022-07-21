@@ -40,9 +40,6 @@ const Home: React.FC = () => {
     commits.refetch();
   }, [])
 
-  console.log(process.env.REACT_APP_TOKEN);
-
-
   return (
     <ul className="post-list">
       {commits.data && commits.data.map((commit, index) => {
