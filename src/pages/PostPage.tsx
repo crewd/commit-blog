@@ -94,9 +94,8 @@ const PostPage: React.FC = () => {
         </div>
       </address>
       <article className='post-content'>
-        {commitMessage.map(message => {
-          return <ReactMarkdown key={message}>{message}</ReactMarkdown>
-        })}
+        <ReactMarkdown>{commitMessage.join('\n')}</ReactMarkdown>
+
       </article>
     </section>
   )
