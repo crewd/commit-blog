@@ -39,6 +39,13 @@ const Home: React.FC = () => {
     setSearchResult(result);
   }, [commits.data, searchValue]);
 
+  useEffect(() => {
+    if (isOpened) {
+      return;
+    }
+    setSearchResult(commits.data);
+  }, [isOpened])
+
   // sha-latest-commit 저장
   useEffect(() => {
     if (!commits.data) {
@@ -65,7 +72,7 @@ const Home: React.FC = () => {
     <div>
       {isOpened &&
         <div className="searchForm-wrapper">
-          <input className="searchForm-input" type="search" onChange={searchHandler} placeholder="검색어를 입력해주세요" />
+          <input className="searchForm-input" type="search" onChange={searchHandler} placeholder="제목 또는 내용을 입력해주세요" />
         </div>
       }
 
