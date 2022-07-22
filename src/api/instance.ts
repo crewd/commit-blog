@@ -5,7 +5,7 @@ const host = "https://api.github.com/repos/crewd/only-commit";
 const instance = axios.create({
   baseURL: host,
   auth: {
-    username: "newspaper321@nate.com",
+    username: process.env.REACT_APP_USER,
     password: process.env.REACT_APP_TOKEN,
   },
 });
