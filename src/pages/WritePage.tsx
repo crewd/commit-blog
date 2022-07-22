@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import { useRecoilState } from 'recoil';
 import ReactMarkdown from 'react-markdown';
-import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { createFile, getShaNewCommit, pushCommit } from '../api';
 import { baseTreeState, LatestCommitState, newCommitState, newTreeState } from '../recoil/sha';

@@ -1,11 +1,11 @@
 @import 'layout';
 @import 'post';
 @import 'write';
+@import 'search';
 
 $breakpoint-mobile: 425px;
 $breakpoint-tablet: 758px;
 $breakpoint-desktop: 1024px;
-
 
 body {
   margin: 0;

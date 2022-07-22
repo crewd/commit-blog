@@ -1,8 +1,5 @@
 import { Navigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-
 import { baseTreeState, LatestCommitState } from "../../recoil/sha";
 
 function RequireSha({ children }: { children: React.ReactNode }) {
