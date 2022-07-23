@@ -22,11 +22,15 @@ Commit을 게시글로 바꿔주는 블로그입니다.
 
 - ### 게시글 검색
 
-  <img src="https://media.discordapp.net/attachments/988588908575080518/999980649861632041/unknown.png?width=797&height=468" width="500px">
+  <img src="https://media.discordapp.net/attachments/988588908575080518/999980649861632041/unknown.png" width="500px">
 
 - ### 글 작성
 
-  <img src="https://media.discordapp.net/attachments/988588908575080518/999981224380604476/unknown.png?width=843&height=468" width="500px">
+  <img src="https://media.discordapp.net/attachments/988588908575080518/999981224380604476/unknown.png" width="500px">
 
 - ### 게시글
-  <img src="https://media.discordapp.net/attachments/988588908575080518/999981769312968734/unknown.png?width=923&height=468" width="500px">
+
+  <img src="https://media.discordapp.net/attachments/988588908575080518/999981769312968734/unknown.png" width="500px">
+
+- ### Github Repository
+  <img src="https://media.discordapp.net/attachments/988588908575080518/1000391809555517511/unknown.png" width="500px">
